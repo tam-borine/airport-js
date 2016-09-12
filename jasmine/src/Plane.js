@@ -1,7 +1,7 @@
 function Plane() {
 
-  Plane.prototype.isLanded = function() {
-      return true;
+  Plane.prototype.land = function(airport) {
+
   }
 
 }

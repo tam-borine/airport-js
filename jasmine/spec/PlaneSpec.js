@@ -5,9 +5,9 @@ describe("Plane", function() {
     plane = new Plane();
   })
 
+  it('plane can land at an airport', function() {
 
-  it('returns true if called on plane', function() {
-    expect(plane.isLanded).toEqual(true);
+    expect(plane.land).not.toBeUndefined();
   });
 
 });
