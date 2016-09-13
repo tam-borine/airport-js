@@ -1,10 +1,13 @@
 describe('FeatureTest', function() {
   var plane;
   var airport;
+  var weather;
 
   beforeEach(function() {
     plane = new Plane();
-    airport = new Airport();
+    airport = new Airport(weather);
+    weather = {stormy: function(){}};
+    spyOn(weather, 'stormy').and.returnValue(false);
   });
 
   it('a plane can land in an airport', function() {
@@ -22,5 +25,7 @@ describe('FeatureTest', function() {
     expect(airport._planes).not.toContain(plane);
     expect(plane.isLanded).toEqual(false);
   });
+
+
 
 });

@@ -2,10 +2,18 @@ describe('Airport', function() {
 
   var airport;
   var plane;
+  var weather;
 
   beforeEach(function(){
-    airport = new Airport();
+    weather = {stormy: function(){}};
+    airport = new Airport(weather);
     plane = jasmine.createSpyObj('plane', ['land']);
+  });
+
+describe('normal conditions', function() {
+
+  beforeEach(function(){
+    spyOn(weather, 'stormy').and.returnValue(false);
   });
 
   it("has no planes before plane has landed", function(){
@@ -37,6 +45,24 @@ describe('Airport', function() {
       airport.receivePlane(plane);
       }
     expect(function() {airport.receivePlane(plane);}).toThrow("Capacity reached!");
+  });
+
+});
+
+  describe('bad weather related guard cases for flying conditions', function() {
+
+    beforeEach(function(){
+      spyOn(weather, 'stormy').and.returnValue(true);
+    });
+
+    it("stops landing when stormy", function() {
+      expect(function() {airport.receivePlane(plane);}).toThrow("No landing it's stormy!");
+    });
+
+    it("stops taking-off when stormy", function() {
+      expect(function() {airport.ejectPlane(plane);}).toThrow("No flying it's stormy!");
+    });
+
   });
 
 });
