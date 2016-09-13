@@ -6,15 +6,15 @@ describe('Airport', function() {
   beforeEach(function(){
     airport = new Airport();
     plane = jasmine.createSpyObj('plane', ['land']);
-  })
+  });
 
   it("has no planes before plane has landed", function(){
-    expect(airport.planes()).toEqual([]);
+    expect(airport._planes).toEqual([]);
   });
 
   it("updates planes array when called", function(){
-    airport.landPlane(plane)
-    expect(airport.planes()).toEqual([plane]);
+    airport.receivePlane(plane);
+    expect(airport._planes).toEqual([plane]);
   });
 
 });
