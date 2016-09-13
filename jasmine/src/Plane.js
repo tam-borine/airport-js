@@ -1,5 +1,5 @@
 function Plane() {
-
+  this.isLanded = false;
 }
 
 Plane.prototype = {
