@@ -13,7 +13,7 @@ describe('Airport', function() {
   });
 
   it("updates planes array when called", function(){
-    airport.land_plane(plane)
+    airport.landPlane(plane)
     expect(airport.planes()).toEqual([plane]);
   });
 
