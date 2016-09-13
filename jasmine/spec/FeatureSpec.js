@@ -8,8 +8,10 @@ describe('FeatureTest', function() {
   });
 
   it('a plane can land in an airport', function() {
-    plane.land(airport);
+    plane.land();
+    airport.receivePlane(plane);
     expect(airport._planes).toContain(plane);
+    expect(plane.isLanded).toEqual(true);
   });
 
 });

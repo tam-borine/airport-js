@@ -3,11 +3,8 @@ describe("Plane", function() {
 
   beforeEach(function(){
     plane = new Plane();
-    airport = jasmine.createSpyObj('airport',['planes']);
-    airport.planes.and.callFake(function() {
-      return [];
-    });
-  })
+
+  });
 
   it('plane can land', function() {
     expect(plane.land).not.toBeUndefined();
@@ -18,7 +15,7 @@ describe("Plane", function() {
   });
 
   it('landed status is true after landing', function() {
-    plane.land(airport);
+    plane.land();
     expect(plane.isLanded).toEqual(true);
   });
 

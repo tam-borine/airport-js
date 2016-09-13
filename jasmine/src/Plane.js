@@ -4,8 +4,8 @@ function Plane() {
 
 Plane.prototype = {
 
-  land: function(airport) {
-    airport.receivePlane(this);
+  land: function() {
+    this.isLanded = true;
   }
 
 };
