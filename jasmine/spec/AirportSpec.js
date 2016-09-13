@@ -23,4 +23,21 @@ describe('Airport', function() {
     expect(airport._planes).toEqual([]);
   });
 
+  it("has a default capacity", function() {
+    expect(airport._CAPACITY).not.toBeUndefined();
+  })
+
+  it("capacity can be set", function() {
+    airport.setCapacity(20);
+    expect(airport._CAPACITY).toEqual(20);
+  })
+
+  it("cannot hold more planes than capacity", function() {
+    var i = 0;
+    while (i <= airport._CAPACITY) {
+      airport.receivePlane(plane)
+    };
+    expect(function() {airport.receivePlane(plane);}).toThrow(new Error ("Capacity reached!"));
+  })
+
 });
