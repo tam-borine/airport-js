@@ -19,4 +19,9 @@ describe("Plane", function() {
     expect(plane.isLanded).toEqual(true);
   });
 
+  it('landed status is false after take-off', function() {
+    plane.takeOff();
+    expect(plane.isLanded).toEqual(false);
+  });
+
 });

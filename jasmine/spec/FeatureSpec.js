@@ -14,4 +14,13 @@ describe('FeatureTest', function() {
     expect(plane.isLanded).toEqual(true);
   });
 
+  it('a plane can take off from an airport', function() {
+    plane.land();
+    airport.receivePlane(plane);
+    plane.takeOff();
+    airport.ejectPlane(plane);
+    expect(airport._planes).not.toContain(plane);
+    expect(plane.isLanded).toEqual(false);
+  });
+
 });

@@ -17,4 +17,10 @@ describe('Airport', function() {
     expect(airport._planes).toEqual([plane]);
   });
 
+  it("ejects planes from _planes array", function() {
+    airport.receivePlane(plane);
+    airport.ejectPlane(plane);
+    expect(airport._planes).toEqual([]);
+  });
+
 });
