@@ -7,6 +7,7 @@ function Airport() {
 Airport.prototype = {
 
   receivePlane: function(plane) {
+    if (this._planes.length > this._CAPACITY) { throw "Capacity reached!";}
     this._planes.push(plane);
   },
 
